@@ -1,4 +1,11 @@
 <h2>Search flights:</h2>
+<div class="container">
+    <% flash.each do |type, message| %>
+    <div class="alert alert-<%= type %>">
+        <h4><%= message %></h4>
+    </div>
+    <% end %>
+</div>
 <%= form_with url: flights_path, method: :get do |f|%>
     <label>Departure : </label>
     <%= f.select :departing_airport, @airport_options ,prompt: "Departure Airport"%>
