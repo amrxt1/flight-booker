@@ -1,0 +1,15 @@
+
+<% if @results.empty? %>
+    <h3>No flights available for the given criteria</h3>
+<% else %>
+    <h2>Results</h2>
+    <ul>
+    <% @results.each do |f|%>
+    <% unless f.nil? %>
+      <li>
+        <%= f.departing_airport.code %> to <%= f.arrival_airport.code %> on <%= f.date.to_date %>
+    </li>
+    <% end %>
+    <% end %>
+    </ul>
+<% end %>

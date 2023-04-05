@@ -15,20 +15,6 @@ airport_codes = [
     "HND",
     "SYD",
     "MUC",
-    "ORD",
-    "SFO",
-    "DXB",
-    "BKK",
-    "AMS",
-    "FRA",
-    "PEK",
-    "ICN",
-    "MEL",
-    "BOM",
-    "GRU",
-    "YYZ",
-    "MAD",
-    "BCN"
   ]
 
 #Airport.delete_all
@@ -36,9 +22,12 @@ airport_codes = [
 #airport_codes.each do |code|
 #    Airport.create( code: code )
 #end
-airports = Airport.all.shuffle
-10.times do
-  date = DateTime.new(2023, rand(5..12), rand(1..28), 1, 5 ,5)
-  duration = rand(15..30) * 100
-  Flight.create( departing_airport: airports.pop, arrival_airport: airports.pop, date: date, duration: duration )
-end
+
+
+  airports = Airport.all.shuffle
+  3.times do
+    date = Flight.all.sample.date
+    duration = rand(15..30) * 100
+    Flight.create( departing_airport: airports.pop, arrival_airport: airports.pop, date: date, duration: duration )
+  end
+
