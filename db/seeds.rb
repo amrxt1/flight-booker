@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'date'
+
 airport_codes = [
     "JFK",
     "LHR",
@@ -33,3 +36,9 @@ airport_codes = [
 #airport_codes.each do |code|
 #    Airport.create( code: code )
 #end
+airports = Airport.all.shuffle
+10.times do
+  date = DateTime.new(2023, rand(5..12), rand(1..28), 1, 5 ,5)
+  duration = rand(15..30) * 100
+  Flight.create( departing_airport: airports.pop, arrival_airport: airports.pop, date: date, duration: duration )
+end
