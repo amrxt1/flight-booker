@@ -1,0 +1,19 @@
+
+<% if notice %>
+  <%= notice %>
+<% end %>
+
+<h2>Flight Information : </h2>
+<div>
+<% @booking.passengers.each_with_index do |passenger, i| %>
+    <div class="m-2">
+    <div class="my-3 fw-bold"><%= "Passenger #{i + 1}" %></div>
+    <div class="my-3"><%= "Name: #{passenger.name}" %></div>
+    <div class="my-3"><%= "Email: #{passenger.email}" %></div>
+    </div>
+<% end %>
+</div>
+
+<div class="text-center">
+  <%= link_to "Search for more flights", flights_path%>
+</div>

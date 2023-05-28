@@ -7,7 +7,7 @@
     <h3> Please select a flight : </h3>
     <hr>
 
-    <%= form_with url: flights_path, method: :get do |f| %>
+    <%= form_with url: new_booking_path, method: :get do |f| %>
 
         <% @results.each do |flight|%>
             <%= radio_button_tag(:flight_id, flight.id) %>
