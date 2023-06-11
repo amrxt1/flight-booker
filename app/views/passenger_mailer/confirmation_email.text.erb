@@ -1,0 +1,12 @@
+This is a confirmation email for your flight booking.
+
+Booking ID : <%= @booking.id %>
+
+Passenger name : <%= @passenger.name %>
+
+#Flight details: 
+    Arrival : <%= @flight.arrival_airport.code %>
+    Departure : <%= @flight.departing_airport.code %>
+    Date : <%= @flight.date %>
+
+Thanks!

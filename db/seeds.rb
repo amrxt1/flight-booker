@@ -24,10 +24,12 @@ airport_codes = [
 #end
 
 
-  airports = Airport.all.shuffle
-  3.times do
-    date = Flight.all.sample.date
-    duration = rand(15..30) * 100
-    Flight.create( departing_airport: airports.pop, arrival_airport: airports.pop, date: date, duration: duration )
-  end
+  #airports = Airport.all.shuffle
+  #3.times do
+  #  date = Flight.all.sample.date
+   # duration = rand(15..30) * 100
+   # Flight.create( departing_airport: airports.pop, arrival_airport: airports.pop, date: date, duration: duration )
+  #end
 
+  Booking.delete_all
+  Passenger.delete_all

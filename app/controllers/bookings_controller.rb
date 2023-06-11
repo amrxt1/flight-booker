@@ -8,6 +8,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
+        @booking.passengers.each do |p|
+          PassengerMailer.confirmation_email(p).deliver_later
+        end
         redirect_to @booking, notice: "You have sucessfully booked the flight!"
     else
         render :new, status: :unprocessable_entity  
